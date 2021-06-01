@@ -34,7 +34,6 @@ printf "\n"
 API_KEY= #Your API KEY here if you don't know what you should instert please just check the Readme.md
 
 
-
 #THE FUNCTION 
 main(){
     echo -n "$(colWhite UrbanDict)$(colYellow '.sh>') "
