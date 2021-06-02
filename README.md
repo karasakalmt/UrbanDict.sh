@@ -1,4 +1,12 @@
 # ![UrbanDict.sh](img/UrbanDictsh.png)
+## Table of Contents
+1. [What is UrbanDict.sh](#what-is-urbandictsh)  
+2. [How to use UrbanDict.sh](#how-to-use-urbandictsh)  
+    2.1 [Single Word Query](#single-word-query)  
+    2.2 [Multi Word Query](#multi-word-query)  
+    2.3 [What are those red words?](#what-are-those-red-words)  
+3. [How to install UrbanDict.sh?](#how-to-install-urbandictsh)  
+4. [Conclusion](#conclusion)
 ## What is UrbanDict.sh?
 UrbanDict.sh is a straightforward bash tool in which you can query words in Urban Dictionary and get definitions via using Unofficial Urban Dictionary API from RapidAPI.
 
