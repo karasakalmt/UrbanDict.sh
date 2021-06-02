@@ -45,9 +45,7 @@ $ git clone https://github.com/patern0ster/UrbanDict.sh.git
 
 After cloning, you have to get an API key from [this link](https://rapidapi.com/community/api/urban-dictionary), which takes you to urban dictionaries' unofficial API on [RapidAPI](https://rapidapi.com). You have to sign up or sign in to get your X-RapidAPI-Key; after signing in, make sure you copy your API key on your clipboard. Now you are about to be ready to start using the UrbanDict.sh.  
 
-You have to download ``jq`` by clicking [here](https://stedolan.github.io/jq/download/) to let the program parse the JSON.  
-
-As last step, open the ``UrbanDict.sh`` on your favorite text editor. And add your X-RapidAPI-Key to the specified place and in the specified format.
+Open the ``UrbanDict.sh`` on your favorite text editor. And add your X-RapidAPI-Key to the specified place and in the specified format.
 ```shell
 #Program won't work if you don't put the key below
 #And make sure you write your API key adjacent to 'API_KEY=' 
@@ -55,6 +53,7 @@ As last step, open the ``UrbanDict.sh`` on your favorite text editor. And add yo
 API_KEY=
 
 ```
+Lastly, you have to download ``jq`` by clicking [here](https://stedolan.github.io/jq/download/) to let the program parse the JSON.  
 
 Now you are ready to use the program. There are two ways to execute the program. For use first way, you have to go to the directory where you cloned the UrbanDict.sh and give every permission to the program.  
 ```shell
