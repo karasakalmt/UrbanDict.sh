@@ -31,25 +31,68 @@ printf "\n"
 
 #Program wont work if you don't put the key below
 #And make sure you write your api key adjacent to 'API_KEY=' It should be looking like : API_KEY=1234 or API_KEY='1234'
-API_KEY= #Your API KEY here if you don't know what you should instert please just check the Readme.md
+API_KEY=#Your API KEY here if you don't know what you should instert please just check the Readme.md
 
+result=""
+
+#This function can read your selection as input
+cmd_stealth() {
+  trap break INT
+  if [ "$is_macos" = yes ]; then
+    past=$(pbpaste)
+  else
+    if [ "$XDG_SESSION_TYPE" = wayland ]; then
+      past=$(wl-paste -p)
+    else
+      past=$(xsel -o)
+    fi
+  fi
+  printf "\033[0;31mstealth:\033[0m In this mod you can steal words in your screen\n"
+  printf "\033[0;31mstealth:\033[0m use ^C to leave this mode\n"
+	while true; do
+    if [ "$is_macos" = yes ]; then #If session macos use pbppaste
+      current=$(pbpaste) 
+    else
+      if [ "$XDG_SESSION_TYPE" = wayland ]; then #If
+        current=$(wl-paste -p) #İf session wayland use wl-paste
+      else
+        current=$(xsel -o) #if session others use xsel
+      fi
+    fi
+    if [ "$past" != "$current" ]; then #setting variables
+      past=$current
+      result=$current
+      break
+    fi
+    sleep 1;
+	done
+  trap - INT
+}
 
 #THE FUNCTION 
 main(){
     echo -n "$(colWhite UrbanDict)$(colYellow '.sh>') "
-	read query count #Getting the query word or phrase, and getting the number of queries that the user want to see
+	read input count #Getting the query word or phrase, and getting the number of queries that the user want to see
     
-    if [[ $query == yolo ]] #Checks if the user wants to leave the program
+    if [[ $input == yolo ]] #Checks if the user wants to leave the program
     then
         exit 0
     fi
-
+	
+	if [[ $input == readline ]]
+	then
+		cmd_stealth
+		query=$result
+		
+	else
+		query=$input
+	fi
     count=${count:-100} #I assumed there wont be more than 100 answers :D  
-
     #API does it's thing I made a GET request in silent mode to get the JSON data
 	output=$(curl -s --request GET --url "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${query}"  --header 'x-rapidapi-host: mashape-community-urban-dictionary.p.rapidapi.com' --header "x-rapidapi-key: ${API_KEY}" | jq .list)
     #Building output dictionary including only necessary parts
-    output=$(echo $output | jq .[0:${count}] | jq '[.[] | {def: .definition, author: .author, word: .word}]')
+   	echo "${output}"
+	 output=$(echo $output | jq .[0:${count}] | jq '[.[] | {def: .definition, author: .author, word: .word}]')
     
     #Formatting the query to check if the phrase or word is matching with the result
     query=${query//+/ } #Changing plusses into spaces
@@ -76,4 +119,4 @@ main(){
     main
 }
 main
-                                                                                  
+                                                                                 
