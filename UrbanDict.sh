@@ -31,7 +31,7 @@ printf "\n"
 
 #Program wont work if you don't put the key below
 #And make sure you write your api key adjacent to 'API_KEY=' It should be looking like : API_KEY=1234 or API_KEY='1234'
-API_KEY=9540c25701msha42c2b6d228a633p1f215djsn3ac66459e35a #Your API KEY here if you don't know what you should instert please just check the Readme.md
+API_KEY= #Your API KEY here if you don't know what you should instert please just check the Readme.md
 
 result=""
 
