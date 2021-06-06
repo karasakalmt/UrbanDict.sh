@@ -39,7 +39,7 @@ then
   echo -e "\e[32mBut it is also okay if you write \"$(colWhite UrbanDict)$(colYellow '.sh>') word\e[32m\" number_of_results will be max number as default\e[0m"
   echo -e "\e[32mIf the phrase you are searching for has more than 1 word please insert '+' between words.\e[0m"
   echo -e "\e[32mex:'Rush B Cyka Blyat' must be searched as 'rush+b+cyka+blyat' or 'Rush+B+Cyka+Blyat'\e[0m"
-  echo -e "\e[0;31mSome words may be shown red because these result's words are diffirent.\e[0m"
+  echo -e "\e[0;31mSome words may be shown red because these result's words are different.\e[0m"
   #Some tutorial and a warning
   printf "\n"
 else #Showing text for hidden wise mode
@@ -106,8 +106,14 @@ main(){
   fi
 	if [[ $# -ge 1 ]] #Checks if Hidden Wise mode on.
 	then
-		hidden_wise #Executing select catching part
-		query=${result// /+} #Formatting query to be able to use in curl
+	  hidden_wise #Executing select catching part
+	  query=${result// /+} #Formatting query to be able to use in curl
+    
+    if [[ ${#result} -lt 2 ]]
+    then
+      main $1 $2
+    fi
+    
     if [[ $# -eq 2 ]] #Checking if $2 is set if set
     then
       count=$2

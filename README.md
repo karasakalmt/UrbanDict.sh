@@ -5,6 +5,7 @@
     2.1 [Single Word Query](#single-word-query)  
     2.2 [Multi Word Query](#multi-word-query)  
     2.3 [What are those red words?](#what-are-those-red-words)  
+    2.4 [Hidden Wise Mode](#hidden-wise-mode)  
 3. [How to install UrbanDict.sh?](#how-to-install-urbandictsh)  
 4. [Conclusion](#conclusion)
 ## What is UrbanDict.sh?
@@ -24,18 +25,30 @@ UrbanDict.sh> word
 
 ### Single Word Query
 **Lazy user:**  
+
 ![example1](img/example1.png)  
+
 **Hardworking nerd user:**  
+
 ![example2](img/example2.png)  
 ### Multi Word Query
 Sometimes you might want to search for word phrases, it is possible, but there is a rule you have to combine words with '+' ex:'``Rush B Cyka Blyat``' must be searched as '``rush+b+cyka+blyat``' or '``Rush+B+Cyka+Blyat``'.
 **Lazy user:**  
+
 ![example_multi1](img/multi-ex1.png)
+
 **Hardworking nerd user:**  
+
 ![example_multi2](img/multi-ex2.png)
+
 ### What are those red words?
-Sometimes your query doesn't match with the exact word, or there are highly rated and semantically/syntactically close word(s) to your query, so in this case, these close words show up with their definitions below. 
+Sometimes your query doesn't match with the exact word, or there are highly rated and semantically/syntactically close word(s) to your query, so in this case, these close words show up with their definitions below.   
+
 ![example_red](img/red-text.png)
+  
+### Hidden Wise Mode
+It is basically stealth mode for this app. To turn it on you have to pass '--hidden-wise arguement' flag like ``bash UrbanDict.sh --hidden-wise``. You can also specify the amount of queries in each querying by ``bash UrbanDict.sh --hidden-wise 2`` in this case program will return 2 definition for your query. It can be used simply by selecting the word by double clicking on it or selecting it via mouse. You have to download [wl-clipboard](https://github.com/bugaevc/wl-clipboard.git) to program to perform hidden wise mode.
+
 ## How to install UrbanDict.sh?
 I am programming bash for two days, so I will only be able to show how I use it as a real noob 😎.  
 Firstly clone the repo to your local.
